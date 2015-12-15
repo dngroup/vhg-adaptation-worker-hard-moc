@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vTU>
+  <!-- Input Media Description -->
+  <in>
+    <!-- Input video file from local disk -->
+    <local>
+      <stream>1.mp4</stream>
+    </local>
+    <!-- Input video stream from network -->
+    <rstp>
+      <ip></ip>
+      <port></port>
+      <stream></stream>
+      <timeout></timeout>
+    </rstp>
+
+
+    <!-- Input codecs ( if necessary ) -->
+    <codec>
+      <vcodec></vcodec>
+      <vsize></vsize>
+      <acodec></acodec>
+    </codec>
+  </in>
+  <!-- Output Media Description -->
+  <out>
+    <!-- Output video file to local disk -->
+    <local>
+      <overwrite>y</overwrite>
+      <stream>1.mp4</stream>
+    </local>
+    <!-- Output video stream to network -->
+    <rstp>
+      <ip></ip>
+      <port></port>
+      <stream></stream>
+      <timeout></timeout>
+    </rstp>
+    <!-- Output codecs ( mandatory ) -->
+    <codec>
+      <vcodec>h264</vcodec>
+      <acodec>mp3</acodec>
+      <vbitrate>2000k</vbitrate>
+      <abitrate>128k</abitrate>
+      <vsize></vsize>
+      <vframerate></vframerate>
+      <asamplerate></asamplerate>
+      <achannels></achannels>
+    </codec>
+  </out>
+</vTU>

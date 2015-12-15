@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+   <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+         <!-- XML Schema Generated from XML Document on Mon Dec 14 2015 16:51:16 GMT+0100 (CET) -->
+         <!-- with XmlGrid.net Free Online Service http://xmlgrid.net -->
+         <xs:element name="vTU">
+               <xs:complexType>
+                     <xs:sequence>
+                           <xs:element name="in">
+                                 <xs:complexType>
+                                       <xs:sequence>
+                                             <xs:element name="local">
+                                                   <xs:complexType>
+                                                         <xs:sequence>
+                                                               <xs:element name="stream" type="xs:string"></xs:element>
+                                                         </xs:sequence>
+                                                   </xs:complexType>
+                                             </xs:element>
+                                             <xs:element name="rstp">
+                                                   <xs:complexType>
+                                                         <xs:sequence>
+                                                               <xs:element name="ip"></xs:element>
+                                                               <xs:element name="port"></xs:element>
+                                                               <xs:element name="stream"></xs:element>
+                                                               <xs:element name="timeout"></xs:element>
+                                                         </xs:sequence>
+                                                   </xs:complexType>
+                                             </xs:element>
+                                             <xs:element name="codec">
+                                                   <xs:complexType>
+                                                         <xs:sequence>
+                                                               <xs:element name="vcodec"></xs:element>
+                                                               <xs:element name="vsize"></xs:element>
+                                                               <xs:element name="acodec"></xs:element>
+                                                         </xs:sequence>
+                                                   </xs:complexType>
+                                             </xs:element>
+                                       </xs:sequence>
+                                 </xs:complexType>
+                           </xs:element>
+                           <xs:element name="out">
+                                 <xs:complexType>
+                                       <xs:sequence>
+                                             <xs:element name="local">
+                                                   <xs:complexType>
+                                                         <xs:sequence>
+                                                               <xs:element name="overwrite" type="xs:string"></xs:element>
+                                                               <xs:element name="stream" type="xs:string"></xs:element>
+                                                         </xs:sequence>
+                                                   </xs:complexType>
+                                             </xs:element>
+                                             <xs:element name="rstp">
+                                                   <xs:complexType>
+                                                         <xs:sequence>
+                                                               <xs:element name="ip"></xs:element>
+                                                               <xs:element name="port"></xs:element>
+                                                               <xs:element name="stream"></xs:element>
+                                                               <xs:element name="timeout"></xs:element>
+                                                         </xs:sequence>
+                                                   </xs:complexType>
+                                             </xs:element>
+                                             <xs:element name="codec">
+                                                   <xs:complexType>
+                                                         <xs:sequence>
+                                                               <xs:element name="vcodec" type="xs:string"></xs:element>
+                                                               <xs:element name="acodec" type="xs:string"></xs:element>
+                                                               <xs:element name="vbitrate" type="xs:string"></xs:element>
+                                                               <xs:element name="abitrate" type="xs:string"></xs:element>
+                                                               <xs:element name="vsize"></xs:element>
+                                                               <xs:element name="vframerate"></xs:element>
+                                                               <xs:element name="asamplerate"></xs:element>
+                                                               <xs:element name="achannels"></xs:element>
+                                                         </xs:sequence>
+                                                   </xs:complexType>
+                                             </xs:element>
+                                       </xs:sequence>
+                                 </xs:complexType>
+                           </xs:element>
+                     </xs:sequence>
+               </xs:complexType>
+         </xs:element>
+   </xs:schema>
