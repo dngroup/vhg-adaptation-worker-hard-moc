@@ -48,7 +48,7 @@ def movefile(srcPath):
             pass
         try:
             os.rename(pathContentFile, pathOuputContentFile)
-            logging.info("move content", srcPath)
+            logging.info("move content")
         except OSError as e:
             logging.error("The content file is not found may be already move %s", pathContentFile)
             pass
