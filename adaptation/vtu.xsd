@@ -37,7 +37,7 @@
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
-				<xs:element name="out">
+				<xs:element name="out" maxOccurs="unbounded" minOccurs="0">
 					<xs:complexType>
 						<xs:sequence>
 							<xs:element name="local" maxOccurs="1" minOccurs="0">

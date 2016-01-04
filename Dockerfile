@@ -20,6 +20,7 @@ RUN mkdir -p /vTU/vTU/spool/
 RUN mkdir -p /home/kvm/.ssh/
 RUN mkdir -p /usr/share/nginx/html/output
 RUN useradd kvm
+RUN ln -s /usr/share/nginx/html/output/ /vTU/vTU/
 
 RUN chown -R kvm /vTU/
 RUN chown -R kvm /home/kvm/
