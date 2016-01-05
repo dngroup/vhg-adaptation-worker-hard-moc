@@ -17,15 +17,16 @@ RUN pip install watchdog lxml
 
 RUN mkdir -p /vTU/vTU/input/
 RUN mkdir -p /vTU/vTU/spool/
-RUN mkdir -p /home/kvm/.ssh/
+RUN mkdir -p /home/herbaut/.ssh/
 RUN mkdir -p /usr/share/nginx/html/output
-RUN useradd kvm
+RUN useradd herbaut
+RUN ln -s /usr/share/nginx/html/output/ /vTU/vTU/
 
-RUN chown -R kvm /vTU/
-RUN chown -R kvm /home/kvm/
+RUN chown -R herbaut /vTU/
+RUN chown -R herbaut /home/herbaut/
 
 COPY sshkeydocker.pub sshkeydocker.pub
-RUN cat sshkeydocker.pub >> /home/kvm/.ssh/authorized_keys
+RUN cat sshkeydocker.pub >> /home/herbaut/.ssh/authorized_keys
 
 COPY adaptation/ /worker/adaptation
 WORKDIR worker

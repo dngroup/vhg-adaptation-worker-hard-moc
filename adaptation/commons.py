@@ -2,9 +2,9 @@ import os
 import sys
 import time
 import logging
+import shutil
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
-
 from XMLparser import readXML
 from settings import DELAY
 
@@ -17,10 +17,8 @@ def TestIfXML(srcPath):
     suffix = '.xml'
     if (srcPath.endswith(suffix)):
         return True
-    else :
+    else:
         return False
-
-
 
 
 def movefile(srcPath):
@@ -35,22 +33,35 @@ def movefile(srcPath):
 
         # pathContentFile = os.path.dirname(os.path.abspath(srcPath)) +"/" +contentFile
         logging.info("The content file is here %s", pathContentFile)
-        contentOuputFile = vtuxml.find('out').find('local').find('stream').text
-
-        pathOuputContentFile = "/usr/share/nginx/html/output/" + contentOuputFile
-        time.sleep(DELAY)
         try:
+            os.makedirs("/usr/share/nginx/html/vTU/output/" + time.strftime("%Y.%m.%d"))
+        except OSError as e:
+            logging.debug("folder already exist")
+            pass
+        time.sleep(DELAY)
+
+        for out in vtuxml.findall('out'):
+            contentOuputFile = out.find('local').find('stream').text
+
+            pathOuputContentFile = "/usr/share/nginx/html/vTU/output/" + time.strftime("%Y.%m.%d") + "/" + contentOuputFile
+
+            try:
+                # assert not os.path.isabs(pathContentFile)
+
+
+                shutil.copyfile(pathContentFile, pathOuputContentFile)
+                logging.info("move content")
+            except OSError as e:
+                logging.error("The content file is not found may be already move %s", pathContentFile)
+                pass
+        try:
+
             os.rename(srcPath, pathOuputContentFile + '.xml')
+
             logging.info("move xml")
         except OSError as e:
 
             logging.info("The content file is not found may be already move %s", srcPath)
-            pass
-        try:
-            os.rename(pathContentFile, pathOuputContentFile)
-            logging.info("move content", srcPath)
-        except OSError as e:
-            logging.error("The content file is not found may be already move %s", pathContentFile)
             pass
 
 
@@ -79,11 +90,12 @@ class MyHandler(FileSystemEventHandler):
         # logging.info("Deleted file or directory: %s", event.src_path)
         pass
 
+
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO,
                         format='%(asctime)s - %(message)s',
                         datefmt='%Y-%m-%d %H:%M:%S')
-    logging.info("Start python",)
+    logging.info("Start python", )
     path = sys.argv[1] if len(sys.argv) > 1 else '.'
     path = '/vTU/vTU/spool/'
     # path = test
